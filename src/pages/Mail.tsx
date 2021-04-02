@@ -1,12 +1,10 @@
 import { IonPage, IonTitle } from '@ionic/react';
-import './Home.css';
+import './Mail.css';
 
-const Home: React.FC = () => {
+export const Mail: React.FC = () => {
   return (
     <IonPage>
       <IonTitle>Welcome to Gmail</IonTitle>
     </IonPage>
   );
 };
-
-export default Home;
