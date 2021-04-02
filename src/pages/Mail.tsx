@@ -1,8 +1,15 @@
-import { IonCol, IonContent, IonGrid, IonImg, IonPage, IonRow } from '@ionic/react';
+import { IonCol, IonContent, IonGrid, IonPage, IonRow } from '@ionic/react';
 import React from 'react';
+import { HomeLogo, HomeLogoProps } from '../components/HomeLogo';
 import './Mail.css';
 
 const GMAIL_LOGO = 'gmail-logo.png';
+
+const homeLogoProps: HomeLogoProps = {
+  src: `${process.env.PUBLIC_URL}${GMAIL_LOGO}`,
+  title: 'Gmail',
+  href: 'mail',
+};
 
 export const Mail: React.FC = () => {
   return (
@@ -11,7 +18,7 @@ export const Mail: React.FC = () => {
         <IonGrid>
           <IonRow data-testid="firstRow">
             <IonCol size="4">
-              <IonImg src={`${process.env.PUBLIC_URL}${GMAIL_LOGO}`} />
+              <HomeLogo {...homeLogoProps} />
             </IonCol>
             <IonCol>
             </IonCol>
