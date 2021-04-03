@@ -1,7 +1,7 @@
 import { IonCol, IonContent, IonGrid, IonPage, IonRow } from '@ionic/react';
-import React from 'react';
 import { HomeLogo, HomeLogoProps } from '../components/HomeLogo';
 import { SearchBar, SearchBarProps } from '../components/SearchBar';
+import { Sidebar, SidebarProps } from '../components/Sidebar';
 import './Mail.css';
 
 const GMAIL_LOGO = 'gmail-logo.png';
@@ -15,6 +15,11 @@ const homeLogoProps: HomeLogoProps = {
 const searchBarProps: SearchBarProps = {
   placeholder: 'Search mail',
 };
+
+const sidebarProps: SidebarProps = {
+  main: ['Inbox', 'Starred', 'Sent', 'Trash'],
+  extra: ['Work', 'Travel'],
+}
 
 export const Mail: React.FC = () => {
   return (
@@ -31,6 +36,7 @@ export const Mail: React.FC = () => {
           </IonRow>
           <IonRow data-testid="secondRow">
             <IonCol size="4">
+              <Sidebar {...sidebarProps} />
             </IonCol>
             <IonCol>
             </IonCol>
