@@ -1,5 +1,5 @@
 import { MailPageState } from '../models/MailPageState';
-import { MailPageActionTypes, SET_SEARCHBAR_TEXT } from '../models/actions/MailPage.actions';
+import { MailPageActionTypes, SET_INBOX_DATA, SET_SEARCHBAR_TEXT } from '../models/actions/MailPage.actions';
 
 export const reducer = (
   state: MailPageState,
@@ -10,6 +10,12 @@ export const reducer = (
       return {
         ...state,
         searchBar: action.text,
+      };
+    }
+    case SET_INBOX_DATA: {
+      return {
+        ...state,
+        inbox: action.messages,
       };
     }
     default: return state;
