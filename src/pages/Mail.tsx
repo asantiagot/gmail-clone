@@ -1,11 +1,16 @@
 import { IonCol, IonContent, IonGrid, IonPage, IonRow } from '@ionic/react';
+import { useReducer } from 'react';
 import { HomeLogo, HomeLogoProps } from '../components/HomeLogo';
 import { MailList } from '../components/MailList';
 import { SearchBar, SearchBarProps } from '../components/SearchBar';
 import { Sidebar, SidebarProps } from '../components/Sidebar';
 import { Toolbar } from '../components/Toolbar';
+import { MailPageActionTypes } from '../models/actions/MailPage.actions';
+import { MAIL_PAGE_DEFAULT_STATE } from '../models/Constants';
+import { MailPageState } from '../models/MailPageState';
 import { Messages } from '../models/Messages';
 import './Mail.css';
+import { reducer } from './MailReducer';
 
 const GMAIL_LOGO = 'gmail-logo.png';
 
@@ -29,6 +34,8 @@ const mailList: Messages = {
 };
 
 export const Mail: React.FC = () => {
+  const [state, dispatch] = useReducer<(state: MailPageState, action: MailPageActionTypes) => MailPageState>(reducer, MAIL_PAGE_DEFAULT_STATE);
+  const { inbox, searchBar, trash } = state;
   return (
     <IonPage>
       <IonContent fullscreen>
