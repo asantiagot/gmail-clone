@@ -7,6 +7,15 @@
   border: 1px solid rgb(229, 232, 234);
 }
 
+.Toolbar {
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  position: relative;
+  padding: 10px 10px;
+  /* border: 1px solid rgb(229, 232, 234); */
+}
+
 .MailInfo {
   width: 100%;
   display: flex;

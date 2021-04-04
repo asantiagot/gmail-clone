@@ -3,6 +3,7 @@ import { HomeLogo, HomeLogoProps } from '../components/HomeLogo';
 import { MailList } from '../components/MailList';
 import { SearchBar, SearchBarProps } from '../components/SearchBar';
 import { Sidebar, SidebarProps } from '../components/Sidebar';
+import { Toolbar } from '../components/Toolbar';
 import { Messages } from '../models/Messages';
 import './Mail.css';
 
@@ -45,6 +46,7 @@ export const Mail: React.FC = () => {
               <Sidebar {...sidebarProps} />
             </IonCol>
             <IonCol>
+              <Toolbar />
               <MailList {...mailList} />
             </IonCol>
           </IonRow>
