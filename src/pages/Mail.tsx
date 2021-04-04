@@ -1,7 +1,9 @@
 import { IonCol, IonContent, IonGrid, IonPage, IonRow } from '@ionic/react';
 import { HomeLogo, HomeLogoProps } from '../components/HomeLogo';
+import { MailList } from '../components/MailList';
 import { SearchBar, SearchBarProps } from '../components/SearchBar';
 import { Sidebar, SidebarProps } from '../components/Sidebar';
+import { Messages } from '../models/Messages';
 import './Mail.css';
 
 const GMAIL_LOGO = 'gmail-logo.png';
@@ -21,6 +23,10 @@ const sidebarProps: SidebarProps = {
   extra: ['Work', 'Travel'],
 }
 
+const mailList: Messages = {
+  mailList: [{id: '1', body: '<p>Lorem ipsum</p>', date: '20/12/21', sender: 'Joao Lopez', subject: 'Your suscription confirmation', tags: []}, {id: '2', body: '<p>Lo de marcos ipsum</p>', date: '20/12/21', sender: 'Juan Reynoso', subject: 'Your shipment', tags: []}],
+};
+
 export const Mail: React.FC = () => {
   return (
     <IonPage>
@@ -39,6 +45,7 @@ export const Mail: React.FC = () => {
               <Sidebar {...sidebarProps} />
             </IonCol>
             <IonCol>
+              <MailList {...mailList} />
             </IonCol>
           </IonRow>
         </IonGrid>

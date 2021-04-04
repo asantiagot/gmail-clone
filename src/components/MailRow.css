@@ -1,0 +1,28 @@
+.MailRow {
+  width: 100%;
+  flex-wrap: wrap;
+  display: flex;
+  position: relative;
+  padding: 10px 10px;
+  border: 1px solid rgb(229, 232, 234);
+}
+
+.MailInfo {
+  width: 100%;
+  display: flex;
+  position: relative;
+  text-align: left;
+}
+
+#mailSender {
+  width: 100%;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#mailSubject {
+  margin-right: auto;
+  width: 100%;
+}
