@@ -27,10 +27,6 @@ const sidebarProps: SidebarProps = {
   extra: ['Work', 'Travel'],
 }
 
-const mailList: Messages = {
-  mailList: [{id: '1', body: '<p>Lorem ipsum</p>', date: '20/12/21', sender: 'Joao Lopez', subject: 'Your suscription confirmation', tags: []}, {id: '2', body: '<p>Lo de marcos ipsum</p>', date: '20/12/21', sender: 'Juan Reynoso', subject: 'Your shipment', tags: []}],
-};
-
 export const Mail: React.FC = () => {
   const [state, dispatch] = useReducer<(state: MailPageState, action: MailPageActionTypes) => MailPageState>(reducer, MAIL_PAGE_DEFAULT_STATE);
   const { inbox, searchBar, trash } = state;
