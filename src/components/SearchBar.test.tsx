@@ -3,6 +3,8 @@ import { SearchBar, SearchBarProps } from "./SearchBar";
 
 const props: SearchBarProps = {
   placeholder: 'Search mail',
+  value: '',
+  handleSearchbarChange: jest.fn(),
 };
 
 describe('Search bar test suite', () => {
