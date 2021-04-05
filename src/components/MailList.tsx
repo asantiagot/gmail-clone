@@ -7,7 +7,7 @@ export const MailList: React.FC<Messages> = ({ mailList }) => {
     <table className="MailTable" data-testid="mail-table">
       <tbody className="MailTableBody" data-testid="mail-tbody">
         {mailList && mailList.map((mail, i) => (
-          <MailRow mail={mail} id={i} key={i} />
+          <MailRow mail={mail} id={mail.id} key={i} />
         ))}
       </tbody>
     </table>

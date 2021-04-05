@@ -22,7 +22,7 @@ const homeLogoProps: HomeLogoProps = {
   href: 'mail',
 };
 
-export const Mail: React.FC = () => {
+export const Mail: React.FC = ({ children} ) => {
   const [state, dispatch] = useReducer<(state: MailPageState, action: MailPageActionTypes) => MailPageState>(reducer, MAIL_PAGE_DEFAULT_STATE);
   const { inbox, searchBar, trash, tags } = state;
 
@@ -61,8 +61,12 @@ export const Mail: React.FC = () => {
               <Sidebar {...tags} />
             </IonCol>
             <IonCol>
-              <Toolbar />
-              <MailList {...inbox} />
+              {children || ( 
+                <>
+                  <Toolbar />
+                  <MailList {...inbox} /> 
+                </>
+               )}
             </IonCol>
           </IonRow>
         </IonGrid>

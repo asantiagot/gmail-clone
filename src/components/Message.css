@@ -1,0 +1,17 @@
+.MessageSubject {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: larger;
+}
+
+#receivedDate {
+  float: right;
+}
+
+#recipient{
+  display: block;
+}
+
+.MessageInfo {
+  font-size: small;
+  color: rgb(95, 99, 104);
+}

@@ -28,10 +28,10 @@ describe('MailList test suite', () => {
 
   it('should render 5 mail rows', () => {
     const { getByTestId } = render(<MailList {...mailList} />);
-    expect(getByTestId(`mail-list-${0}`)).toBeDefined();
     expect(getByTestId(`mail-list-${1}`)).toBeDefined();
     expect(getByTestId(`mail-list-${2}`)).toBeDefined();
     expect(getByTestId(`mail-list-${3}`)).toBeDefined();
     expect(getByTestId(`mail-list-${4}`)).toBeDefined();
+    expect(getByTestId(`mail-list-${5}`)).toBeDefined();
   });
 });
