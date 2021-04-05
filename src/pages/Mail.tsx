@@ -49,7 +49,7 @@ export const Mail: React.FC = () => {
       <IonContent fullscreen>
         <IonGrid>
           <IonRow data-testid="firstRow">
-            <IonCol size="4">
+            <IonCol size="2">
               <HomeLogo {...homeLogoProps} />
             </IonCol>
             <IonCol>
@@ -57,7 +57,7 @@ export const Mail: React.FC = () => {
             </IonCol>
           </IonRow>
           <IonRow data-testid="secondRow">
-            <IonCol size="4">
+            <IonCol size="2">
               <Sidebar {...tags} />
             </IonCol>
             <IonCol>

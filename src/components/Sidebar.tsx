@@ -1,16 +1,16 @@
-import { IonButton, IonItem, IonList, IonText } from "@ionic/react";
+import { IonItem, IonList } from "@ionic/react";
 import { MailCategoryIcon } from "./MailCategoryIcon";
-
+import './Sidebar.css';
 export interface SidebarProps {
   main: string[],
   extra: string[],
 }
 
 const MailCategoryButton: React.FC<{category: string}> = ({ category }) => (
-  <IonButton>
-    <MailCategoryIcon category={category} />
-    <IonText>{category}</IonText>
-  </IonButton> 
+  <button className="MailCategoryButton" >
+    <MailCategoryIcon category={category} color="#757575" />
+    <span className="Category">{category}</span>
+  </button> 
 );
 
 export const Sidebar: React.FC<SidebarProps> = ({ main, extra }) => {

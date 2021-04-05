@@ -1,0 +1,17 @@
+.MailCategoryButton {
+  width: fit-content;
+  margin-right: auto;
+  background: none;
+  padding: 10px;
+  padding-right: 50%;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+.Category {
+  text-transform: capitalize;
+}
+
+.MailCategoryButton:hover {
+  background-color: #f4f3f1;
+}
