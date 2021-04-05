@@ -8,6 +8,12 @@
   border-bottom-right-radius: 30px;
 }
 
+#activeCategory {
+  background: rgb(252, 232, 230);
+  color: rgb(215, 50, 45);
+  font-weight: bold;
+}
+
 .Category {
   text-transform: capitalize;
 }

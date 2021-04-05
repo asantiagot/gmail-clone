@@ -1,9 +1,10 @@
 import { MailPageState } from '../models/MailPageState';
-import { MailPageActionTypes, SET_INBOX_DATA, SET_SEARCHBAR_TEXT } from '../models/actions/MailPage.actions';
+import { MailPageActionTypes, SET_ACTIVE_INBOX, SET_INBOX_DATA, SET_SEARCHBAR_TEXT } from '../models/actions/MailPage.actions';
 import { Messages } from '../models/Messages';
 import { Mail } from '../models/Mail';
 import { SidebarProps } from '../components/Sidebar';
 import { SIDEBAR_DEFAULT_STATE } from '../models/Constants';
+import { ActionSheetButton } from '@ionic/react';
 
 const containsSpam = (mailExtract: string) => {
   const SPAM = 'SPAM';
@@ -66,6 +67,17 @@ export const reducer = (
         ...state,
         inbox,
         tags,
+      };
+    }
+    case SET_ACTIVE_INBOX: {
+      const activeInbox = action.inbox.toUpperCase();
+      return {
+        ...state,
+        activeInbox,
+        tags: {
+          ...state.tags,
+          activeInbox,
+        },
       };
     }
     default: return state;

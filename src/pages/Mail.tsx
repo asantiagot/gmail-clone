@@ -3,11 +3,11 @@ import { useEffect, useReducer } from 'react';
 import { HomeLogo, HomeLogoProps } from '../components/HomeLogo';
 import { MailList } from '../components/MailList';
 import { SearchBar, SearchBarProps } from '../components/SearchBar';
-import { Sidebar } from '../components/Sidebar';
+import { Sidebar, SidebarProps } from '../components/Sidebar';
 import { Toolbar } from '../components/Toolbar';
 import { MailPageActionTypes } from '../models/actions/MailPage.actions';
-import { setInboxData, setSearchBarText } from '../models/actions/MailPageActionCreators';
-import { MAIL_PAGE_DEFAULT_STATE, SEARCHBAR_DEFAULT_STATE } from '../models/Constants';
+import { setActiveInbox, setInboxData, setSearchBarText } from '../models/actions/MailPageActionCreators';
+import { MAIL_PAGE_DEFAULT_STATE, SEARCHBAR_DEFAULT_STATE, SIDEBAR_DEFAULT_STATE } from '../models/Constants';
 import { MailPageState } from '../models/MailPageState';
 import { Messages } from '../models/Messages';
 import './Mail.css';
@@ -34,11 +34,20 @@ export const Mail: React.FC = ({ children} ) => {
     dispatch(setSearchBarText(value));
   };
 
+  const handleSetActiveInbox = (inbox: string) => {
+    dispatch(setActiveInbox(inbox));
+  };
+
   const searchbarProps: SearchBarProps = {
     ...SEARCHBAR_DEFAULT_STATE,
     value: searchBar,
     handleSearchbarChange,
   };
+
+  const sidebarProps: SidebarProps = {
+    ...tags,
+    onClick: handleSetActiveInbox,
+  }
 
   useEffect(() => {
     handleSetInboxData({ mailList: messages });
@@ -58,7 +67,7 @@ export const Mail: React.FC = ({ children} ) => {
           </IonRow>
           <IonRow data-testid="secondRow">
             <IonCol size="2">
-              <Sidebar {...tags} />
+              <Sidebar {...sidebarProps} />
             </IonCol>
             <IonCol>
               {children || ( 

@@ -18,6 +18,8 @@ export const INBOX_DEFAULT_STATE: Messages = { mailList: [MAIL_DEFAULT_STATE] };
 export const SIDEBAR_DEFAULT_STATE: SidebarProps = {
   main: ['Inbox', 'Starred', 'Sent', 'Trash'],
   extra: [],
+  activeInbox: 'INBOX',
+  onClick: () => {},
 };
 
 export const MAIL_PAGE_DEFAULT_STATE: MailPageState = {
@@ -25,4 +27,5 @@ export const MAIL_PAGE_DEFAULT_STATE: MailPageState = {
   searchBar: '',
   trash: {mailList: [] },
   tags: SIDEBAR_DEFAULT_STATE,
+  activeInbox: 'INBOX',
 };

@@ -6,4 +6,5 @@ export interface MailPageState {
   inbox: Messages;
   trash: Messages;
   tags: SidebarProps;
+  activeInbox: string;
 }

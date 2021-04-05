@@ -8,11 +8,12 @@ import './MailRowButtons.css';
 
 interface props {
   category: string;
-  color?: string;
+  isCategoryActive: boolean;
 }
 
-export const MailCategoryIcon: React.FC<props> = ({ category, color }) => {
-  const style: React.CSSProperties= {
+export const MailCategoryIcon: React.FC<props> = ({ category, isCategoryActive }) => {
+  const color = isCategoryActive ? 'rgb(215, 50, 45)' : '#757575';
+  const style: React.CSSProperties = {
     color,
   };
   switch (category.toUpperCase()) {
