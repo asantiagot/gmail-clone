@@ -31,6 +31,10 @@
 }
 
 #mailSubject {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 350px;
   margin-right: auto;
   width: 100%;
 }
