@@ -23,6 +23,7 @@ export const SIDEBAR_DEFAULT_STATE: SidebarProps = {
 };
 
 export const MAIL_PAGE_DEFAULT_STATE: MailPageState = {
+  original: INBOX_DEFAULT_STATE,
   inbox: INBOX_DEFAULT_STATE,
   searchBar: '',
   trash: {mailList: [] },

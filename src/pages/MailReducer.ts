@@ -4,7 +4,6 @@ import { Messages } from '../models/Messages';
 import { Mail } from '../models/Mail';
 import { SidebarProps } from '../components/Sidebar';
 import { SIDEBAR_DEFAULT_STATE } from '../models/Constants';
-import { ActionSheetButton } from '@ionic/react';
 
 const containsSpam = (mailExtract: string) => {
   const SPAM = 'SPAM';
@@ -23,7 +22,7 @@ const removeMail = (mailList: Mail[], mailNumber: Mail): Mail[] => {
 }
 
 const tagsReducer = (tags: string[], tag: string) => {
-  if (!tags.includes(tag)) {
+  if (!tags.includes(tag)){
     tags.push(tag);
   } 
   return tags;
@@ -65,20 +64,39 @@ export const reducer = (
       const [inbox, tags] = processMessages(action.messages);
       return {
         ...state,
+        original: {...inbox},
         inbox,
         tags,
       };
     }
     case SET_ACTIVE_INBOX: {
       const activeInbox = action.inbox.toUpperCase();
-      return {
-        ...state,
-        activeInbox,
-        tags: {
-          ...state.tags,
-          activeInbox,
-        },
-      };
+      switch (activeInbox) {
+        case 'INBOX': {
+          return {
+            ...state,
+            activeInbox,
+            inbox: { ...state.original },
+            tags: {
+              ...state.tags,
+              activeInbox,
+            }
+          }
+        }
+        default: {
+          const messages = state.original.mailList.filter((mail) => mail.tags.includes(action.inbox));
+          return {
+            ...state,
+            activeInbox,
+            inbox: { mailList: messages },
+            tags: {
+              ...state.tags,
+              activeInbox,
+            },
+          };
+        }
+      }
+
     }
     default: return state;
   }
