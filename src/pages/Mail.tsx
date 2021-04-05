@@ -3,7 +3,7 @@ import { useEffect, useReducer } from 'react';
 import { HomeLogo, HomeLogoProps } from '../components/HomeLogo';
 import { MailList } from '../components/MailList';
 import { SearchBar, SearchBarProps } from '../components/SearchBar';
-import { Sidebar, SidebarProps } from '../components/Sidebar';
+import { Sidebar } from '../components/Sidebar';
 import { Toolbar } from '../components/Toolbar';
 import { MailPageActionTypes } from '../models/actions/MailPage.actions';
 import { setInboxData, setSearchBarText } from '../models/actions/MailPageActionCreators';
@@ -22,14 +22,9 @@ const homeLogoProps: HomeLogoProps = {
   href: 'mail',
 };
 
-const sidebarProps: SidebarProps = {
-  main: ['Inbox', 'Starred', 'Sent', 'Trash'],
-  extra: ['Work', 'Travel'],
-}
-
 export const Mail: React.FC = () => {
   const [state, dispatch] = useReducer<(state: MailPageState, action: MailPageActionTypes) => MailPageState>(reducer, MAIL_PAGE_DEFAULT_STATE);
-  const { inbox, searchBar, trash } = state;
+  const { inbox, searchBar, trash, tags } = state;
 
   const handleSetInboxData = (messages: Messages) => {
     dispatch(setInboxData(messages));
@@ -63,7 +58,7 @@ export const Mail: React.FC = () => {
           </IonRow>
           <IonRow data-testid="secondRow">
             <IonCol size="4">
-              <Sidebar {...sidebarProps} />
+              <Sidebar {...tags} />
             </IonCol>
             <IonCol>
               <Toolbar />
