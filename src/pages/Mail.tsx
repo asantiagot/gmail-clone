@@ -4,7 +4,6 @@ import { HomeLogo, HomeLogoProps } from '../components/HomeLogo';
 import { MailList } from '../components/MailList';
 import { SearchBar, SearchBarProps } from '../components/SearchBar';
 import { Sidebar, SidebarProps } from '../components/Sidebar';
-import { Toolbar } from '../components/Toolbar';
 import { MailPageActionTypes } from '../models/actions/MailPage.actions';
 import { setActiveInbox, setInboxData, setSearchBarText, tagEmail } from '../models/actions/MailPageActionCreators';
 import { MAIL_PAGE_DEFAULT_STATE, SEARCHBAR_DEFAULT_STATE } from '../models/Constants';
@@ -67,23 +66,20 @@ export const Mail: React.FC = ({ children} ) => {
       <IonContent fullscreen>
         <IonGrid>
           <IonRow data-testid="firstRow">
-            <IonCol size="2">
+            <IonCol size="2" className="HomeLogo">
               <HomeLogo {...homeLogoProps} />
             </IonCol>
-            <IonCol>
+            <IonCol className="SearchBar">
               <SearchBar {...searchbarProps} />
             </IonCol>
           </IonRow>
           <IonRow data-testid="secondRow">
-            <IonCol size="2">
+            <IonCol size="2" className="Sidebar">
               <Sidebar {...sidebarProps} />
             </IonCol>
-            <IonCol>
+            <IonCol className="MailList">
               {children || ( 
-                <>
-                  <Toolbar />
-                  <MailList messages={mailListProps} activeInbox={activeInbox} /> 
-                </>
+                <MailList messages={mailListProps} activeInbox={activeInbox} /> 
                )}
             </IonCol>
           </IonRow>

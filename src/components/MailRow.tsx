@@ -20,7 +20,7 @@ export const MailRow: React.FC<MailRowProps> = ({ mail, id, onClick, activeInbox
         <MailRowButtons id={id} onClick={onClick} />
         <span aria-label={`Mail Sender is ${mail.sender}`} id="mailSender">{mail.sender}</span>
         <span aria-label={`Mail Subject is ${mail.subject}`} id="mailSubject">{mail.subject}</span>
-        <span aria-label={`Mail Date is ${month} ${day} at ${time}`}>{`${month} ${day} ${time}`}</span>
+        <span aria-label={`Mail Date is ${month} ${day} at ${time}`} id="mailDate">{`${month} ${day} ${time}`}</span>
       </td>
     </tr>
   );

@@ -8,7 +8,7 @@ export interface HomeLogoProps {
 export const HomeLogo: React.FC<HomeLogoProps> = ({ src, title, href }) => {
   return (
     <a href={href} title={title}>
-      <IonImg src={src} />
+      <IonImg src={src}  />
     </a>
   );
 };

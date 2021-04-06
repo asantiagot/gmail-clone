@@ -1,0 +1,29 @@
+.HomeLogo{
+  max-width: 200px;
+}
+
+@media (max-width: 320px) {
+  .HomeLogo {
+    display: none;
+  }
+
+  .Sidebar {
+    display: flex;
+  }
+
+  .Sidebar .MailCategoryButton {
+    display: flex;
+    position: sticky;
+    width: fit-content;
+  }
+
+  .SearchBar {
+    width: 100%;
+    display: block;
+    position: relative;
+  }
+
+  .MailList .MailRow {
+    height: 50px;
+  }
+}
