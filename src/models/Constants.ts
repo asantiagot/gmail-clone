@@ -16,7 +16,7 @@ export const MAIL_DEFAULT_STATE: Mail = {
 export const INBOX_DEFAULT_STATE: Messages = { mailList: [MAIL_DEFAULT_STATE] };
 
 export const SIDEBAR_DEFAULT_STATE: SidebarProps = {
-  main: ['Inbox', 'Sent', 'Trash'],
+  main: ['Inbox', 'Sent', ],
   extra: [],
   activeInbox: 'INBOX',
   onClick: () => {},

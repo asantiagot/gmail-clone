@@ -32,10 +32,19 @@ const getMessageTags = (message: Mail, initialValue: string[]) => {
   return message.tags.reduce(tagsReducer, initialValue);
 };
 
+const getMailIndex = (mailList: Mail[], index: string) => {
+  return mailList.findIndex((mail) => mail.id === index);
+};
+
 const addTagToMail = (mailList: Mail[], index: string, tag: string): Mail[] => {
-  const mailIndex = mailList.findIndex((mail) => mail.id === index);
+  const mailIndex = getMailIndex(mailList, index);
   mailList[mailIndex].tags.push(tag.toLowerCase());
   return mailList;
+};
+
+const removeElementFromInbox = (mailList: Mail[], index: string): Mail[] => {
+  const mailIndex = getMailIndex(mailList, index);
+  return mailList.splice(mailIndex, 1);
 };
 
 const processMessages = (messages: Messages): [Messages, SidebarProps] => {

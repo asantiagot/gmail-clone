@@ -13,13 +13,13 @@ const mailList: Messages = {
 };
 
 describe('MailList test suite', () => {
-  const { baseElement } = render(<MailList {...mailList} />);
+  const { baseElement } = render(<MailList messages={mailList} activeInbox={'INBOX'} />);
   it('renders without crashing', () => {
     expect(baseElement).toBeDefined();
   });
 
   it('displays a table and tbody structure', () => {
-    const { getByTestId } = render(<MailList {...mailList} />);
+    const { getByTestId } = render(<MailList messages={mailList} activeInbox={'INBOX'} />);
     const mailTable = getByTestId('mail-table');
     const mailTableBody = getByTestId('mail-tbody');
     expect(mailTable).toBeDefined();
@@ -27,7 +27,7 @@ describe('MailList test suite', () => {
   });
 
   it('should render 5 mail rows', () => {
-    const { getByTestId } = render(<MailList {...mailList} />);
+    const { getByTestId } = render(<MailList messages={mailList} activeInbox={'INBOX'} />);
     expect(getByTestId(`mail-list-${1}`)).toBeDefined();
     expect(getByTestId(`mail-list-${2}`)).toBeDefined();
     expect(getByTestId(`mail-list-${3}`)).toBeDefined();

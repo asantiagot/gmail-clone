@@ -8,9 +8,10 @@ interface MailRowProps {
   mail: Mail; 
   id: string;
   onClick: (tag: string, id: string) => void;
+  activeInbox: string;
 };
 
-export const MailRow: React.FC<MailRowProps> = ({ mail, id, onClick }) => {
+export const MailRow: React.FC<MailRowProps> = ({ mail, id, onClick, activeInbox }) => {
   const history = useHistory();
   const [month, day, time] = getFormattedDate(mail.date);
   return (

@@ -24,7 +24,7 @@ const homeLogoProps: HomeLogoProps = {
 
 export const Mail: React.FC = ({ children} ) => {
   const [state, dispatch] = useReducer<(state: MailPageState, action: MailPageActionTypes) => MailPageState>(reducer, MAIL_PAGE_DEFAULT_STATE);
-  const { inbox, searchBar, trash, tags } = state;
+  const { inbox, searchBar, tags, activeInbox } = state;
 
   const handleSetInboxData = (messages: Messages) => {
     dispatch(setInboxData(messages));
@@ -59,7 +59,7 @@ export const Mail: React.FC = ({ children} ) => {
   }
 
   useEffect(() => {
-    handleSetInboxData({ mailList: messages });
+    handleSetInboxData({ mailList: messages  });
   }, []);
 
   return (
@@ -82,7 +82,7 @@ export const Mail: React.FC = ({ children} ) => {
               {children || ( 
                 <>
                   <Toolbar />
-                  <MailList {...mailListProps} /> 
+                  <MailList messages={mailListProps} activeInbox={activeInbox} /> 
                 </>
                )}
             </IonCol>
