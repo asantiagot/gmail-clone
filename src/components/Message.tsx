@@ -1,5 +1,5 @@
 import { IonIcon } from "@ionic/react";
-import { arrowBack, trashBin } from "ionicons/icons";
+import { arrowBack } from "ionicons/icons";
 import { useHistory } from "react-router";
 import { Mail } from "../models/Mail";
 import { getFormattedDate } from "../utils/getFormattedDate";
@@ -15,9 +15,6 @@ export const Message: React.FC<Mail> = ({ subject, body, sender, date }) => {
       <nav>
         <button className="MailRowButton" onClick={() => history.push('/mail')}>
           <IonIcon icon={arrowBack} />
-        </button>
-        <button className="MailRowButton">
-          <IonIcon icon={trashBin} />
         </button>
       </nav>
       <header>

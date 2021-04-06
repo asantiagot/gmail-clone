@@ -7,6 +7,12 @@
   border: 1px solid rgb(229, 232, 234);
 }
 
+.MailRow:hover {
+  border-top: 3px solid rgb(229, 232, 234);
+  border-bottom: 3px solid rgb(229, 232, 234);
+  cursor: pointer;
+}
+
 .Toolbar {
   width: 100%;
   flex-wrap: wrap;
