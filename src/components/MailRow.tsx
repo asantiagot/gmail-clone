@@ -17,7 +17,7 @@ export const MailRow: React.FC<MailRowProps> = ({ mail, id, onClick, activeInbox
   return (
     <tr className="MailRow" data-testid={`mail-list-${id}`} onClick={() => history.push(`/mail/message/${id}`)}>
       <td className="MailInfo">
-        <MailRowButtons id={id} onClick={onClick} />
+        <MailRowButtons id={id} onClick={onClick} mail={mail} />
         <span aria-label={`Mail Sender is ${mail.sender}`} id="mailSender">{mail.sender}</span>
         <span aria-label={`Mail Subject is ${mail.subject}`} id="mailSubject">{mail.subject}</span>
         <span aria-label={`Mail Date is ${month} ${day} at ${time}`} id="mailDate">{`${month} ${day} ${time}`}</span>
