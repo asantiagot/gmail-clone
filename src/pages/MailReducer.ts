@@ -1,5 +1,5 @@
 import { MailPageState } from '../models/MailPageState';
-import { MailPageActionTypes, SET_ACTIVE_INBOX, SET_INBOX_DATA, SET_SEARCHBAR_TEXT } from '../models/actions/MailPage.actions';
+import { MailPageActionTypes, SET_ACTIVE_INBOX, SET_INBOX_DATA, SET_SEARCHBAR_TEXT, TAG_EMAIL } from '../models/actions/MailPage.actions';
 import { Messages } from '../models/Messages';
 import { Mail } from '../models/Mail';
 import { SidebarProps } from '../components/Sidebar';
@@ -30,6 +30,12 @@ const tagsReducer = (tags: string[], tag: string) => {
 
 const getMessageTags = (message: Mail, initialValue: string[]) => {
   return message.tags.reduce(tagsReducer, initialValue);
+};
+
+const addTagToMail = (mailList: Mail[], index: string, tag: string): Mail[] => {
+  const mailIndex = mailList.findIndex((mail) => mail.id === index);
+  mailList[mailIndex].tags.push(tag.toLowerCase());
+  return mailList;
 };
 
 const processMessages = (messages: Messages): [Messages, SidebarProps] => {
@@ -96,7 +102,19 @@ export const reducer = (
           };
         }
       }
-
+    }
+    case TAG_EMAIL: {
+      state.tags.extra.push(action.tag.toLowerCase());
+      return {
+        ...state,
+        inbox: {
+          mailList: addTagToMail(state.inbox.mailList, action.id, action.tag),
+        },
+        tags: {
+          ...state.tags,
+          extra: state.tags.extra.reduce(tagsReducer, []),
+        },
+      }
     }
     default: return state;
   }

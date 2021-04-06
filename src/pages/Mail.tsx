@@ -6,8 +6,8 @@ import { SearchBar, SearchBarProps } from '../components/SearchBar';
 import { Sidebar, SidebarProps } from '../components/Sidebar';
 import { Toolbar } from '../components/Toolbar';
 import { MailPageActionTypes } from '../models/actions/MailPage.actions';
-import { setActiveInbox, setInboxData, setSearchBarText } from '../models/actions/MailPageActionCreators';
-import { MAIL_PAGE_DEFAULT_STATE, SEARCHBAR_DEFAULT_STATE, SIDEBAR_DEFAULT_STATE } from '../models/Constants';
+import { setActiveInbox, setInboxData, setSearchBarText, tagEmail } from '../models/actions/MailPageActionCreators';
+import { MAIL_PAGE_DEFAULT_STATE, SEARCHBAR_DEFAULT_STATE } from '../models/Constants';
 import { MailPageState } from '../models/MailPageState';
 import { Messages } from '../models/Messages';
 import './Mail.css';
@@ -38,6 +38,10 @@ export const Mail: React.FC = ({ children} ) => {
     dispatch(setActiveInbox(inbox));
   };
 
+  const handleTagEmail = (tag: string, id: string) => {
+    dispatch(tagEmail(tag, id));
+  };
+
   const searchbarProps: SearchBarProps = {
     ...SEARCHBAR_DEFAULT_STATE,
     value: searchBar,
@@ -47,6 +51,11 @@ export const Mail: React.FC = ({ children} ) => {
   const sidebarProps: SidebarProps = {
     ...tags,
     onClick: handleSetActiveInbox,
+  }
+
+  const mailListProps: Messages = {
+    ...inbox,
+    onClick: handleTagEmail,
   }
 
   useEffect(() => {
@@ -73,7 +82,7 @@ export const Mail: React.FC = ({ children} ) => {
               {children || ( 
                 <>
                   <Toolbar />
-                  <MailList {...inbox} /> 
+                  <MailList {...mailListProps} /> 
                 </>
                )}
             </IonCol>
