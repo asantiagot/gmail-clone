@@ -1,4 +1,4 @@
-# Gmail Clone - SalesLoft Challenge
+# Gmail Clone
 
 # How to run locally
 - npm install
