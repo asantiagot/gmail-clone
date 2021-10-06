@@ -1,5 +1,5 @@
 import { IonItem, IonList } from "@ionic/react";
-import { MailCategoryIcon } from "./MailCategoryIcon";
+import { MailCategoryIcon } from "../Misc/MailCategoryIcon";
 import './Sidebar.css';
 export interface SidebarProps {
   main: string[];

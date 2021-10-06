@@ -1,11 +1,11 @@
 import { IonCol, IonContent, IonGrid, IonPage, IonRow } from '@ionic/react';
 import { useEffect, useReducer } from 'react';
-import { HomeLogo, HomeLogoProps } from '../components/HomeLogo';
-import { MailList } from '../components/MailList';
-import { SearchBar, SearchBarProps } from '../components/SearchBar';
-import { Sidebar, SidebarProps } from '../components/Sidebar';
+import { HomeLogo, HomeLogoProps } from '../components/HomeLogo/HomeLogo';
+import { MailList } from '../components/MailList/MailList';
+import { SearchBar, SearchBarProps } from '../components/SearchBar/SearchBar';
+import { Sidebar, SidebarProps } from '../components/Sidebar/Sidebar';
 import { MailPageActionTypes } from '../models/actions/MailPage.actions';
-import { setActiveInbox, setInboxData, setSearchBarText, tagEmail } from '../models/actions/MailPageActionCreators';
+import { searchInbox, setActiveInbox, setInboxData, setSearchBarText, tagEmail } from '../models/actions/MailPageActionCreators';
 import { MAIL_PAGE_DEFAULT_STATE, SEARCHBAR_DEFAULT_STATE } from '../models/Constants';
 import { MailPageState } from '../models/MailPageState';
 import { Messages } from '../models/Messages';
@@ -31,6 +31,7 @@ export const Mail: React.FC = ({ children} ) => {
 
   const handleSearchbarChange = (value: string) => {
     dispatch(setSearchBarText(value));
+    dispatch(searchInbox(value));
   };
 
   const handleSetActiveInbox = (inbox: string) => {

@@ -1,5 +1,5 @@
-import { SearchBarProps } from "../components/SearchBar";
-import { SidebarProps } from "../components/Sidebar";
+import { SearchBarProps } from "../components/SearchBar/SearchBar";
+import { SidebarProps } from "../components/Sidebar/Sidebar";
 import { Mail } from "./Mail";
 import { MailPageState } from "./MailPageState";
 import { Messages } from "./Messages";

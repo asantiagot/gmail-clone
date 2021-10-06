@@ -1,8 +1,8 @@
 import { MailPageState } from '../models/MailPageState';
-import { MailPageActionTypes, SET_ACTIVE_INBOX, SET_INBOX_DATA, SET_SEARCHBAR_TEXT, TAG_EMAIL } from '../models/actions/MailPage.actions';
+import { MailPageActionTypes, SEARCH_EMAIL, SET_ACTIVE_INBOX, SET_INBOX_DATA, SET_SEARCHBAR_TEXT, TAG_EMAIL } from '../models/actions/MailPage.actions';
 import { Messages } from '../models/Messages';
 import { Mail } from '../models/Mail';
-import { SidebarProps } from '../components/Sidebar';
+import { SidebarProps } from '../components/Sidebar/Sidebar';
 import { SIDEBAR_DEFAULT_STATE } from '../models/Constants';
 
 const containsSpam = (mailExtract: string) => {
@@ -122,6 +122,17 @@ export const reducer = (
         tags: {
           ...state.tags,
           extra: state.tags.extra.reduce(tagsReducer, []),
+        },
+      }
+    }
+    case SEARCH_EMAIL: {
+      const stateCopy = { ...state };
+      const filtered = stateCopy.original.mailList.filter(mail => (mail.body.toLocaleLowerCase().includes(action.query.toLocaleLowerCase())) || mail.subject.toLocaleLowerCase().includes(action.query.toLocaleLowerCase()) || mail.sender.toLocaleLowerCase().includes(action.query.toLocaleLowerCase()))
+      return {
+        ...state,
+        inbox: {
+          mailList: filtered,
+
         },
       }
     }

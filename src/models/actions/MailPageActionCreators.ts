@@ -1,5 +1,5 @@
 import { Messages } from "../Messages";
-import { MailPageActionTypes, SET_ACTIVE_INBOX, SET_INBOX_DATA, SET_SEARCHBAR_TEXT, TAG_EMAIL } from "./MailPage.actions";
+import { MailPageActionTypes, SET_ACTIVE_INBOX, SET_INBOX_DATA, SET_SEARCHBAR_TEXT, TAG_EMAIL, SEARCH_EMAIL, } from "./MailPage.actions";
 
 export const setSearchBarText = (text: string): MailPageActionTypes => {
   return {
@@ -29,3 +29,10 @@ export const tagEmail = (tag: string, id: string): MailPageActionTypes => {
     id,
   };
 };
+
+export const searchInbox = (query: string): MailPageActionTypes => {
+  return {
+    type: SEARCH_EMAIL,
+    query,
+  }
+} 

@@ -1,8 +1,8 @@
 import { useHistory } from "react-router";
-import { Mail } from "../models/Mail";
-import { getFormattedDate } from "../utils/getFormattedDate";
+import { Mail } from "../../models/Mail";
+import { getFormattedDate } from "../../utils/getFormattedDate";
 import './MailRow.css';
-import { MailRowButtons } from "./MailRowButtons";
+import { MailRowButtons } from "./MailRowButtons/MailRowButtons";
 
 interface MailRowProps {
   mail: Mail; 

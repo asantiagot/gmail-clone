@@ -7,6 +7,11 @@ export interface SearchBarProps {
 
 export const SearchBar: React.FC<SearchBarProps> = ({ placeholder, value, handleSearchbarChange }) => {
   return (
-    <IonSearchbar placeholder={placeholder} value={value} onIonChange={(e) => handleSearchbarChange && handleSearchbarChange(e.detail.value!)} />
+    <IonSearchbar 
+      placeholder={placeholder} 
+      value={value} 
+      onIonChange=
+        {(e) => handleSearchbarChange && handleSearchbarChange(e.detail.value!)} 
+    />
   );
 };

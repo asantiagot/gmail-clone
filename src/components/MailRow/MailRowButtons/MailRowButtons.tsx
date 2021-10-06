@@ -1,6 +1,7 @@
 import { IonIcon } from "@ionic/react"
 import { flagOutline, starOutline, trashBin, star, flag } from 'ionicons/icons';
-import { Mail } from "../models/Mail";
+// import { Mail } from "../models/Mail";
+import { Mail } from "../../../models/Mail";
 import './MailRowButtons.css';
 
 export const MailRowButtons: React.FC<{ id: string; onClick: (tag: string, id: string) => void; mail: Mail }> = ({ onClick, id, mail }) => {

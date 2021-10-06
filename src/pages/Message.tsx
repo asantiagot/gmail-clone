@@ -1,6 +1,6 @@
 import { useHistory, useLocation } from "react-router";
 import { Mail } from "./Mail";
-import { Message as MessageComponent } from '../components/Message';
+import { Message as MessageComponent } from '../components/Message/Message';
 import { messages } from '../data/emails.json';
 import { useEffect, useState } from "react";
 import { Mail as MailType } from '../models/Mail';

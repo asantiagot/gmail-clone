@@ -1,10 +1,10 @@
 import { IonIcon } from "@ionic/react"
-import inbox from '../media/inbox.svg';
-import starred from '../media/starred.svg';
-import sent from '../media/sent.svg';
-import trash from '../media/trash.svg';
-import extra from '../media/extra.svg';
-import './MailRowButtons.css';
+import inbox from '../../media/inbox.svg';
+import starred from '../../media/starred.svg';
+import sent from '../../media/sent.svg';
+import trash from '../../media/trash.svg';
+import extra from '../../media/extra.svg';
+import '../../components/MailRow/MailRow.css';
 
 interface props {
   category: string;

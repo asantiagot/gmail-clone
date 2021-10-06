@@ -1,8 +1,8 @@
 import { IonIcon } from "@ionic/react";
 import { arrowBack } from "ionicons/icons";
 import { useHistory } from "react-router";
-import { Mail } from "../models/Mail";
-import { getFormattedDate } from "../utils/getFormattedDate";
+import { Mail } from "../../models/Mail";
+import { getFormattedDate } from "../../utils/getFormattedDate";
 import './Message.css';
 
 export const Message: React.FC<Mail> = ({ subject, body, sender, date }) => {

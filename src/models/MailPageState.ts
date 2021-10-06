@@ -1,4 +1,4 @@
-import { SidebarProps } from "../components/Sidebar";
+import { SidebarProps } from "../components/Sidebar/Sidebar";
 import { Messages } from "./Messages";
 
 export interface MailPageState {

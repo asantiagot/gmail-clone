@@ -1,5 +1,5 @@
-import { Messages } from "../models/Messages";
-import { MailRow } from "./MailRow";
+import { Messages } from "../../models/Messages";
+import { MailRow } from "../MailRow/MailRow";
 import './MailList.css';
 import { mail } from "ionicons/icons";
 
