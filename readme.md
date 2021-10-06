@@ -7,7 +7,7 @@
 Then go to `localhost:8100`
 
 # Live version
-App is available at https://stoic-kilby-565153.netlify.app/ .
+App is available at https://stoic-kilby-565153.netlify.app/ . 
 Deployment was configured with Netlify's Continuous Deployments, linked to this repository
 
 # Run tests
